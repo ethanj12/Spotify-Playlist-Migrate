@@ -13,7 +13,7 @@ This program uses the Spotify and Youtube API to structure and convert Spotify p
 4.  Run convert_to_spotify.py, inputting username and the playlist you want to copy
 5.  Login to your youtube account when prompted
 6.  Choose how many songs you would like to copy over
-7.  Go to your Youtube accoutn and ensure that the playlists were added
+7.  Go to your Youtube account and ensure that the playlists were added
 
 # WARNING ABOUT QUOTAS
 
