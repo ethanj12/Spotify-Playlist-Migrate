@@ -49,7 +49,7 @@ def get_playlist_of_user(username):
     for key in dict_playlist_name_to_id:
         print(f"{key}-{option_value}")
         option_value += 1
-    playlist_selection = get_user_input("Which playlist would you like to pick: ", "int")
+    playlist_selection = get_user_input("Which playlist would you like to pick (number): ", "int")
 
     spotify_playlist_id = str(id_playlists_of_user[playlist_selection - 1])
     spotify_playlist_name = str(list_of_playlist_names[playlist_selection - 1])
