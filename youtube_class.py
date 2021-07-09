@@ -1,13 +1,16 @@
+#        YOUTUBE_CLASS.py
+# ---------------------------------
+# Creates the youtube class and client that is used to directly link
+# with the Youtube API and provide structure to the function calls and 
+# make the process of searching and adding videos to a playlist easy.
 import os
 import pickle
-from sys import api_version
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-import googleapiclient
 from googleapiclient.discovery import build
-from requests.api import request
 
 #Below conttains directory of where to read/write pickle file for youtube credentials
+#CHANGE TO WORKING DIRECTORY OF THIS CODE IF USING FOR PERSONAL USE
 PICKLE_FILE_DIRECTORY = "C:/Users/ethan/code/python/youtube_token.pickle" 
 
 
@@ -33,7 +36,7 @@ class youtubeAPI(object):
     #       with the credentials.
     def __load_token_from_pickle(self):
         print("Loading token from pickle")
-        if os.path.exists(PICKLE_FILE_DIRECTORY):  # LINE FOR DIRECTORY
+        if os.path.exists(PICKLE_FILE_DIRECTORY): 
             print("Loading credientials")
             with open(PICKLE_FILE_DIRECTORY, "rb") as token:
                 self.youtube_credentials = pickle.load(token)
@@ -56,7 +59,7 @@ class youtubeAPI(object):
         flow.run_local_server(port=8080, prompt="consent", authorization_prompt_message="")
 
         credentials = flow.credentials
-        with open(PICKLE_FILE_DIRECTORY, "wb") as f:  # CHANGE DIRECTORY HERE
+        with open(PICKLE_FILE_DIRECTORY, "wb") as f: 
             pickle.dump(credentials, f)
 
         self.__load_token_from_pickle()
@@ -70,7 +73,6 @@ class youtubeAPI(object):
     #       or if the refresh token if they have a refresh token, and if the user
     #       does, then uses the refresh token to get a new access token.
     def __get_new_access_token(self):
-        print("Getting new Access Token")
         if not self.youtube_credentials or not self.youtube_credentials.valid:
             if self.youtube_credentials.expired and self.youtube_credentials.refresh_token:
                 self.youtube_credentials.refresh(Request())
@@ -105,12 +107,15 @@ class youtubeAPI(object):
     def create_new_playlist(self, title="Music Videos", username="Rick Astley"):
         self.__get_new_access_token()
         request = self.client.playlists().insert(
-            part="snippet",
+            part="snippet,status",
             body={
                 "snippet": {
                     "title": f"{title}",
-                    "description" : f"Playlist of videos for{username} that is located in their playlist of {title} on Spotify"
-                }
+                    "description" : f"Playlist of videos for {username} that is located in their playlist of {title} on Spotify"
+                },
+                "status": {
+                    "privacyStatus": "public"
+                }            
             }
         )
         response = request.execute()
@@ -121,13 +126,11 @@ class youtubeAPI(object):
     # DESC: Looks up the video ID with the search term. Search term in this instance and for
     #       my purpose is assumed to be "{song name} {song artist}". 
     #
-    #       The video returned will
-    #       be the highest viewed video fitting the search term. This is done in order
+    #       The video returned will be the video that best fits term(per youtube). I add
+    #       "Official" after the search term This is done in order
     #       to try and get the official youtube channel of the artist and promote and give
-    #       views to the original artist. I have tested that if you do not put order="viewCount"
-    #       in the API call, then sometimes it will not return the video from the original artist
-    #       even if they do have a youtube channel. This was the best solution that I could
-    #       find, but this could be a point of experimentation. 
+    #       views to the original artist. I have tested that this was the best solution that I could
+    #       find, but this could be a point of experimentation and improvement. 
     #
     #       This function automatically another access token. Access tokens
     #       get used up quickly, and having it call for a new access token everytime is worth
@@ -140,8 +143,7 @@ class youtubeAPI(object):
         self.__get_new_access_token
         request = self.client.search().list(
             part="snippet",
-            order="viewCount",
-            q=f"{search_term}",
+            q=f"{search_term} Official",
             type="video"
         )
         response = request.execute()

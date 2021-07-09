@@ -1,3 +1,14 @@
+#        SPOTIFY_CLIENT.py
+# ---------------------------------
+# Class that is used to make working with the Spotify API easier. Much of the Spotify
+# API does not have a structured client in order to directly access the API, so this class
+# creates one and makes it so that making API calls is easy. This automatically gets access
+# tokens, but you must set up your own Spotify Developers App with your own client
+# secret and client id in order to use the service. This is done so that one can not make
+# function calls with the app tied to this ID. This class can get the list of a user's playlist
+# from their username and create search terms for youtube. This program also allows
+# the user to select which playlist they want to choose and directly convert one playlist
+# from Spotify to one playlist on Youtube.
 import datetime
 import requests
 import base64
