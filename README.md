@@ -6,7 +6,7 @@ This program uses the Spotify and Youtube API to structure and convert Spotify p
 
 1. First you must create a Spotify Developer Account and register an app with a client ID and a client secret in order to use the app.
 2. Add the client id and client secret to your enviroment variable of your system (tutorial here):
-   WINDDOWS: https://www.youtube.com/watch?v=IolxqkL7cD8&ab_channel=CoreySchafer
+   WINDOWS: https://www.youtube.com/watch?v=IolxqkL7cD8&ab_channel=CoreySchafer
    MAC/LINUX: https://www.youtube.com/watch?v=5iWhQWVXosU&t=0s&ab_channel=CoreySchafer
    Name these variables spotify_api_client_id and spotify_api_client_secret respectively.
 3.  Make sure the playlist you want to copy is public
