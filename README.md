@@ -18,3 +18,6 @@ This program uses the Spotify and Youtube API to structure and convert Spotify p
 # WARNING ABOUT QUOTAS
 
 Through the Youtube API, there is a certain amount of quota allowance a day. Almost any call to the API uses quota, so use it sparingly. There is 10,000 quota per day, but to create a playlist costs 50 quota, and each song added after that is 150 quota (searching-100 quota and adding to playlist-50 quota). This means that per day, there is only 66 songs that are able to be added to your playlist. Please be kind and think of others before adding songs!
+
+#Example Spotify Playlist
+![alt text](https://imgur.com/a/ypHzzfD)
