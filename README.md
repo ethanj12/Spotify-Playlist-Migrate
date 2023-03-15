@@ -19,5 +19,14 @@ This program uses the Spotify and Youtube API to structure and convert Spotify p
 
 Through the Youtube API, there is a certain amount of quota allowance a day. Almost any call to the API uses quota, so use it sparingly. There is 10,000 quota per day, but to create a playlist costs 50 quota, and each song added after that is 150 quota (searching-100 quota and adding to playlist-50 quota). This means that per day, there is only 66 songs that are able to be added to your playlist. Please be kind and think of others before adding songs!
 
-#Example Spotify Playlist
-![alt text](https://imgur.com/a/ypHzzfD)
+# Example Spotify Playlist
+![Screenshot 2023-03-14 225339](https://user-images.githubusercontent.com/85595934/225196015-41401ce2-2291-48f0-b14a-2d4ba4037d32.png)
+  
+# Converting some Spotify Playlists to Youtube
+![Gif of Spotify Creation](https://user-images.githubusercontent.com/85595934/225198373-93929f86-486f-4f64-81a3-4040bc1292d0.gif)
+
+#Final Youtube Video Playlist
+![Screenshot 2023-03-14 232841](https://user-images.githubusercontent.com/85595934/225198755-c5fb5806-9683-4076-9e16-0e6db2ccebb5.png)
+
+
+
