@@ -1,5 +1,5 @@
 <div align="center">
-   <img src="https://user-images.githubusercontent.com/85595934/234146324-f1891c8e-4a6b-4bf4-9cfa-627ca098f8e7.png">
+   <img src="https://user-images.githubusercontent.com/85595934/236352930-3569f435-24ab-4023-9b97-3f0060069636.png">
 
 This program uses the Spotify and Youtube API to structure and convert Spotify playlists to Youtube Playlists. This is done so the user can have all of the music videos of their songs from their playlist in one place, with almost every one of them being the official video if it exists.
 
